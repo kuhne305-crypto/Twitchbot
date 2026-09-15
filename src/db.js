@@ -1,13 +1,13 @@
 const path = require("path");
-const Database = require("better-sqlite3");
+const { DatabaseSync } = require("node:sqlite");
 
 // Auf Railway ohne Volume ist das Dateisystem fluechtig (setzt sich bei jedem
 // Deploy zurueck). Fuer dauerhafte Punktestaende: in den Railway-Settings ein
 // Volume anlegen und z.B. unter /data mounten, dann DB_PATH=/data/bot.db setzen.
 const dbPath = process.env.DB_PATH || path.join(__dirname, "..", "bot.db");
-const db = new Database(dbPath);
+const db = new DatabaseSync(dbPath);
 
-db.pragma("journal_mode = WAL");
+db.exec("PRAGMA journal_mode = WAL;");
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS points (
