@@ -1,0 +1,21 @@
+{
+  "name": "atlaxx-twitch-bot",
+  "version": "1.0.0",
+  "description": "Twitch Chat Bot fuer atlaxx_tv - Befehle, Moderation, Punktesystem, Custom Commands",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "tmi.js": "^1.8.5",
+    "undici": "^6.19.8"
+  }
+}
